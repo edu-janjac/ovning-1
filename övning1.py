@@ -5,16 +5,23 @@ def get_name():
     return name
 
 def number_guess():
-    guess = int(input("Gissa ett tal mellan 1 - 10: "))
     i = random.randint(1,10)
-    if i == guess:
-        print("Hippie hurra! 🙌")
-    else:
-        print(f"Tyvärr det var {i}")
+    j = 1
+    while j <= 4:
+        guess = int(input("Gissa ett tal mellan 1-10: "))
+        if i == guess:
+            print(f"Försök {j}: Gissa talet: {guess}\nRät gissat!\nYippie! 🙌")
+            break
+        elif j <= 3:
+            print(f"Försök {j}: Gissa talet: {guess}\nFel gissat")
+            j += 1
+        elif j > 3: 
+            print(f"Du har slut på försök, talet var {i}")
+            break
 
 def main():
     name = get_name()
     print(f"Hej {name} och välkomenen till the squid games!")
-    guess = number_guess
+    number_guess()
 
 main()
